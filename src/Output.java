@@ -1,14 +1,16 @@
+import java.util.List;
 
 public class Output {
-	public void print(Student[] array, int count) {
+	private List<Student> list;
+	public void print(List<Student> list) {
 		this.printLabel();
-		for (int i = 0; i < count; i++) {
-			System.out.println(array[i]);  // array[i].toString();
+		for (Student student : list) {
+			System.out.println(student);
 		}
 	}
 	private void printLabel() {
 		System.out.println("<<<<센텀대학교 성적관리프로그램>>>>");
-		System.out.println("학번\t 이름\t 국어\t 영어\t 수학\t 전산\t 총점\t 평균\t 평점\t");
+		System.out.println("학번\t  이름\t국어\t영어\t수학\t전산\t총점\t평균\t평점\t");
 		System.out.println("----------------------------------------------------------------------------");
 	}
 	

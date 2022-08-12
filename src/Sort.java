@@ -1,36 +1,58 @@
+/*
+ * 객체 정령하기 
+ * 1. 배열 정령하기
+ * 		Arrays.sort() 
+ * 		Comparable interface를 재정의해야
+ * 2. Collection 정령하기
+ * 		Collections.sort()
+ * 		Comparator interface를 재정의해야
+ * 		Compare() 	
+ * 
+ * 
+ */
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 
 public class Sort {
-	private Student[] array;
-	private int count;
+	private List<Student> list;
 
-	public Sort(Student[] array, int count) {
-		this.array = array;
-		this.count = count;
-	}
-
-	public void bubbleSort() {
-		for (int i = 0; i < count - 1; i++) {
-			for (int j = 0; j < count - 1; j++) {
-				if (this.array[j].getTot() < this.array[j + 1].getTot()) {
-					this.swap(j, j+1);
-				}
+	public void sort() {
+		Collections.sort(this.list, new Comparator<Student>() {
+			@Override
+			public int compare(Student front, Student back) {
+				
+				return front.getName().compareTo(back.getName());
 			}
-		}
+		});
 	}
-
-	public void selectionSort() {
-		for (int i = 0; i < count - 1; i++) {
-			for (int j = i + 1; j < count; j++) {
-				if (this.array[i].getTot() < this.array[j].getTot()) {
-					this.swap(i, j);
-				}
-			}
-		}
+	
+	
+	
+	
+	
+	
+	
+	
+//
+	public Sort(List<Student> list) {
+		this.list = list;
 	}
-
-	private void swap(int front, int back) {
-		Student temp = this.array[front];
-		this.array[front] = this.array[back];
-		this.array[back] = temp;
-	}
+//
+//	public void sort() {
+//		Collections.sort(this.list, new MyComparator());
+//	}
+//	
+//	class MyComparator implements Comparator<Student>{
+//
+//		@Override
+//		public int compare(Student front, Student back) {
+//			
+//			return back.getTot() - front.getTot();
+//		}
+//		
+//	}
 }

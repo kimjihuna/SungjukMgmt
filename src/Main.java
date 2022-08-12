@@ -1,19 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
-		Student[] array = new Student[100];
-		Input input = new Input(array);
-		int count = input.fileInput();
-		System.out.println("count = " + count);
 
-//		Calc calc = new Calc(array);
-//		calc.calc(count);
-//		
-//		Sort sort = new Sort(array, count);
-//		sort.bubbleSort();
-//		
-//		Output output = new Output();
-//		output.print(array, count);
-//		System.out.println("성적관리프로그램 끝");
+		System.out.println("성적관리 프로젝트 시작");
+		List<Student> list = new ArrayList<Student>(2);
+		Input input = new Input(list);
+		input.fileInput();
+
+		Calc calc = new Calc(list);
+		calc.calc();
+//	
+		Sort sort = new Sort(list);
+		sort.sort();
+////	
+		Output output = new Output();
+		output.print(list);
+//		System.out.println("성적관리 프로젝트 끝");
 	}
 }
